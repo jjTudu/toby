@@ -18,13 +18,22 @@ from django.urls import path
 from app import views
 from django.urls import path, re_path
 
+from authentication.views import login_view, register_user
+from django.contrib.auth.views import LogoutView
+
 urlpatterns = [
 
     # The home page
     path('', views.index, name='home'),
 
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+
+    path('login/', login_view, name="login"),
+    path('register/', register_user, name="register"),
+    path("logout/", LogoutView.as_view(), name="logout"),
 
     # Matches any html file
-    # re_path(r'^.*\.*', views.pages, name='pages'),
+    re_path(r'^.*\.*', views.pages, name='pages'),
 ]
+
+#Test/ ApS12_ZZs8

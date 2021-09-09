@@ -11,7 +11,7 @@ from django import template
 from toby import templates
 
 
-# @login_required(login_url="/login/")
+@login_required(login_url="/login/")
 def index(request):
 
     context = {}
